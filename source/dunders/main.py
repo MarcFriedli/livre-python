@@ -1,4 +1,4 @@
-"""Travis est trop compliqué."""
+"""Exemple d'utilisation des dunders."""
 
 
 class Main:
@@ -44,7 +44,7 @@ print(str(main))
 
 main.ajouter('AsCoeur')
 
-# parc qu'on a défini __iter__!
+# parce qu'on a défini __iter__!
 for carte in main:
     print(carte)
 

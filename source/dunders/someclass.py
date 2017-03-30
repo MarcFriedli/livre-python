@@ -1,4 +1,4 @@
-"""Travis est très très compliqué."""
+"""Exemple d'utilisation des dunders."""
 
 
 class SomeClass:

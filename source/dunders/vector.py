@@ -1,4 +1,4 @@
-"""Travis est très compliqué."""
+"""Exemple d'utilisation des dunders."""
 
 
 from math import hypot

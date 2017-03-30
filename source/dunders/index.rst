@@ -66,18 +66,6 @@ Voir: `Python and the Principle of Least Astonishment <http://lucumr.pocoo.org/2
 
 Une autre grande utilisation des dunders consiste à les surcharger de manière à les personalisé.
 
-De plus, par convention, on déclare une méthode privée comme étant un dunder :
-
-.. code-block:: python3
-
-    def __myPrivateMethod__(self, other):
-        return none;
-
-.. todo:: Ceci est faux! On n'invente pas de *dunders* personnels, jamais.
-
-   :pep:`8`
-
-
 Exemples
 ========
 
@@ -111,6 +99,11 @@ Conclusion
 
 Il existe beaucoup de dunders. Il faut puiser dans la doc afin de connaitre ceux dont on a l'usage et savoir quand ils sont utilisés.
 Ce sont de puissants outils de Python qui permettent de facilement spécialiser le comportement d'un objet.
+
+Documentation officielle
+-------------------------
+
+https://docs.python.org/3/reference/datamodel.html
 
 Bibliographie
 =============
