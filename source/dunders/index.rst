@@ -11,24 +11,19 @@ Introduction
 
 Le mot dunder est un raccourci de *Double UNDERscore* et représente toutes les méthodes Python qui commencent et finissent par un double underscore (par ex. ``__init__()``).
 
-Les dunders sont des méthodes très puissantes et régulièrement utilisées en python. Ce sont des méthodes universelles que toute classe possède (un peu à l'image de la class Object dans Java).
+Les dunders sont des méthodes très puissantes et régulièrement utilisées en python. Un dunder est toujours une méthode privée appartenant à une classe. La particularité de ces méthodes et qu'elles ne sont jamais directement appelées mais toujours implicitement ou explicitement
 
-.. Quel lien entre Object de Java et les dunders?
-
-Cependant, dans python, les dunders sont rarement appelés directement.
-
-.. todo:: Un peu imprécis car il n'y a pas que des méthodes. ``__name__`` ou ``__file__``
-
-Par exemple :
+par exemple :
 
 .. code-block:: python3
 
-    toto = new MyClass()
+    x = MyClass() #fera appel au dunder __init__() de la classe MyClass
+    str(x) #fera appel au dunder __str__() de la classe MyClass
+    str(12) #fera appel au dunder __str__() de la classe Integer
 
 
-fera appel aux méthodes ``__new__()`` et ``__init__()`` même si ces méthodes n'ont pas été surchargées.
+.. todo:: Un peu imprécis car il n'y a pas que des méthodes. ``__name__`` ou ``__file__``
 
-.. c'est un peu la base de la programmation orienté objet...
 
 Les dunders ont des méthodes raccourci qui vont directement les appeler (autre raison pour laquelle on utilise régulièrement les dunders sans s'en rendre compte) :
 

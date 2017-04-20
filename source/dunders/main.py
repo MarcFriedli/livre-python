@@ -8,8 +8,8 @@ class Main:
         """Initialisateur."""
         self.cartes = args
 
-    def ajouter(self, carte):
-        """Méthode pour add une carte."""
+    def __add__(self, carte):
+        """Redéfinition de l'opérateur + pour add une carte."""
         obj2 = list(self.cartes)  # Converti en liste
         obj2.append(carte)
         self.cartes = tuple(obj2)
@@ -42,7 +42,7 @@ class Main:
 main = Main('1Coeur', '7Pique')
 print(str(main))
 
-main.ajouter('AsCoeur')
+main+'AsCoeur'
 
 # parce qu'on a défini __iter__!
 for carte in main:
