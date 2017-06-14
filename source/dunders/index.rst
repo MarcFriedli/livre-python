@@ -11,7 +11,7 @@ Introduction
 
 Le mot dunder est un raccourci de *Double UNDERscore* et représente toutes les méthodes Python qui commencent et finissent par un double underscore (par ex. ``__init__()``).
 
-Les dunders sont des méthodes très puissantes et régulièrement utilisées en python. Un dunder est toujours une méthode privée appartenant à une classe. La particularité de ces méthodes et qu'elles ne sont jamais directement appelées mais toujours implicitement ou explicitement
+Les dunders sont des méthodes universelles de python. Chacun des dunders est lié à une méthode qui sera implicitement appelée lorsqu'on fait appel au dunder (ce qui fait qu'elles sont également appelés méthodes magiques). De ce fait, on utilise fréquemment des dunders sans s'en rendre compte.
 
 par exemple :
 
@@ -20,33 +20,16 @@ par exemple :
     x = MyClass() #fera appel au dunder __init__() de la classe MyClass
     str(x) #fera appel au dunder __str__() de la classe MyClass
     str(12) #fera appel au dunder __str__() de la classe Integer
+    add = 4 + 5 # fera appel au dunder ``__add__()`` de la classe Number
 
 
-.. todo:: Un peu imprécis car il n'y a pas que des méthodes. ``__name__`` ou ``__file__``
+Les dunders fonctionnent églaement d'autres éléments que des classes, par exemple le dunder *__name__* permet de connaitre le nom du module utilisé, pratique quand on veut exécuter certaines fonctions uniquement lors de l'exécution d'un module et pas lors de son import :
 
 
-Les dunders ont des méthodes raccourci qui vont directement les appeler (autre raison pour laquelle on utilise régulièrement les dunders sans s'en rendre compte) :
-
-.. code-block:: pycon
-
-    >>> 4 + 5
-    9
+.. literalinclude:: name_dunder.py
 
 
-fera appel au dunder ``__add__()``
-
-.. de quelle classe? puisque c'est une méthode.
-
-Ou bien :
-
-.. code-block:: python3
-
-    str("I'm a text")
-
-
-fera appel au dunder ``__str__()`` de :py:class:`str`.
-
-.. obtenir la chaine de caractère d'une chaine de caractère, n'est pas le meilleur exemple.
+Dans le même registre, un package nécessite d'avoir un fichier __init__.py qui s'exécute automatiquement lors de l'import dudit package.
 
 La grande puissance des dunders est leur universalité. En effet, Python a été programmé de manière à ce qu'une opération soit toujours relié au même *dunder*.
 
@@ -88,6 +71,21 @@ De base, quand on chercher à afficher un objet, à moins que la méthode ``__st
 
 
 Idéalement, il faudrait toujours redéfinir la méthode ``__repr__()`` et redéfinir ``__str__()`` uniquement si on a besoin de l'ambiguïté.
+
+
+Membres privées
+================
+
+Bien que n'étant pas un dunder, un membre commençant pas un double underscore sera considéré comme étant un membre privé :
+
+
+.. code-block:: python3
+
+    __private_attribut = 12
+
+
+Cependant, cette pratique est déconseillée en python car rien n'est vraiment privé et il sera toujours possible d'accéder à *__private_attribut*. Par convension, on utilise un seul undersecore pour signaler qu'un méthode est privée et après c'est à la responsabilité du développeur de ne pas faire n'importe quoi. "We are all adults here"
+
 
 Conclusion
 ==========
